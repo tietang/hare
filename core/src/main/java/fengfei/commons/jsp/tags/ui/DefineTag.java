@@ -23,7 +23,7 @@ public class DefineTag extends SimpleTagSupport {
         }
         ServletRequest request = pageContext.getRequest();
         request.setAttribute(CONTEXT_KEY + name, this);
-    
+
     }
 
     public String getName() {
@@ -35,7 +35,9 @@ public class DefineTag extends SimpleTagSupport {
     }
 
     public void invoke(Writer out) throws IOException, JspException {
+        if (getJspBody() != null) {
+            getJspBody().invoke(out);
+        }
 
-        getJspBody().invoke(out);
     }
 }
