@@ -37,12 +37,17 @@ hare template tags
 
 配置模板方法：
 -------------------------
+** 1. 默认不做任何配置：**
+       默认路径为context下：/_layouts/layout.jsp
 ** 2. web.xml中配置默认模板：**
         <context-param>
             <param-name>DEFAULT_HARE_LAYOUT</param-name>
             <param-value>/demo/template.jsp</param-value>
         </context-param>
-** 3. 在<u:body>**
+** 3. 在<u:body> template属性**
+        template="template.jsp"
+
+优先级：<u:body> template属性 > web.xml中配置默认模板 > 默认路径
 
 
 模板页：template.jsp

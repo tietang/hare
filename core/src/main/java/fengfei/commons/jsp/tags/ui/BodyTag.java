@@ -18,34 +18,35 @@ import javax.servlet.jsp.tagext.DynamicAttributes;
  * </pre>
  */
 public class BodyTag extends BodyTagSupport implements DynamicAttributes {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     static String DefaultLayoutKey = "DEFAULT_HARE_LAYOUT";
-    static String DefaultLayout = "/_layouts/layout.jsp";public static final String BODY_TAG_DYNAMIC_ATTRIBUTES = "_body_attr";
-	private String template;
-	private Map<String, Object> attributes = new HashMap<String, Object>();
+    static String DefaultLayout = "/_layouts/layout.jsp";
+    public static final String BODY_TAG_DYNAMIC_ATTRIBUTES = "_body_attr";
+    private String template;
+    private Map<String, Object> attributes = new HashMap<String, Object>();
 
-	@Override
-	public int doStartTag() throws JspException {
-		super.doStartTag();
-		try {
-			pageContext.getOut().clear();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return BodyTagSupport.EVAL_BODY_BUFFERED;
-	}
+    @Override
+    public int doStartTag() throws JspException {
+        super.doStartTag();
+        try {
+            pageContext.getOut().clear();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return BodyTagSupport.EVAL_BODY_BUFFERED;
+    }
 
-	@Override
-	public int doAfterBody() throws JspException {
-		super.doAfterBody();
-		return super.doAfterBody();
-	}
+    @Override
+    public int doAfterBody() throws JspException {
+        super.doAfterBody();
+        return super.doAfterBody();
+    }
 
-	@Override
-	public int doEndTag() throws JspException {
-		try {
-			ServletRequest request = pageContext.getRequest();
-			request.setAttribute(BODY_TAG_DYNAMIC_ATTRIBUTES, attributes);
+    @Override
+    public int doEndTag() throws JspException {
+        try {
+            ServletRequest request = pageContext.getRequest();
+            request.setAttribute(BODY_TAG_DYNAMIC_ATTRIBUTES, attributes);
             if (template == null || "".equals(template)) {
                 String layoutJspFile = pageContext.getServletContext().getInitParameter(DefaultLayoutKey);
                 if (layoutJspFile != null && !"".equals(layoutJspFile)) {
@@ -54,41 +55,41 @@ public class BodyTag extends BodyTagSupport implements DynamicAttributes {
                     template = DefaultLayout;
                 }
             }
-			pageContext.include(template);
-		} catch (ServletException e) {
-			e.printStackTrace();
-			try {
-				pageContext.getResponse().getWriter().write(e.getClass() + ": " + e);
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-			throw new JspException(e.getMessage(), e);
-		} catch (IOException e) {
-			e.printStackTrace();
-			try {
-				pageContext.getResponse().getWriter().write(e.getClass() + ": " + e);
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-			throw new JspException(e.getMessage(), e);
-		}
-		return BodyTagSupport.SKIP_PAGE;
-	}
+            pageContext.include(template);
+        } catch (ServletException e) {
+            e.printStackTrace();
+            try {
+                pageContext.getResponse().getWriter().write(e.getClass() + ": " + e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            throw new JspException(e.getMessage(), e);
+        } catch (IOException e) {
+            e.printStackTrace();
+            try {
+                pageContext.getResponse().getWriter().write(e.getClass() + ": " + e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            throw new JspException(e.getMessage(), e);
+        }
+        return BodyTagSupport.SKIP_PAGE;
+    }
 
-	public String getTemplate() {
-		return template;
-	}
+    public String getTemplate() {
+        return template;
+    }
 
-	public void setTemplate(
-		String template) {
-		this.template = template;
-	}
+    public void setTemplate(
+            String template) {
+        this.template = template;
+    }
 
-	@Override
-	public void setDynamicAttribute(
-		String uri,
-		String localName,
-		Object value) throws JspException {
-		attributes.put(localName, value);
-	}
+    @Override
+    public void setDynamicAttribute(
+            String uri,
+            String localName,
+            Object value) throws JspException {
+        attributes.put(localName, value);
+    }
 }
