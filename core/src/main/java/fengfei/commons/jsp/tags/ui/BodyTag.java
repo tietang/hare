@@ -19,7 +19,8 @@ import javax.servlet.jsp.tagext.DynamicAttributes;
  */
 public class BodyTag extends BodyTagSupport implements DynamicAttributes {
 	private static final long serialVersionUID = 1L;
-	public static final String BODY_TAG_DYNAMIC_ATTRIBUTES = "_body_attr";
+    static String DefaultLayoutKey = "DEFAULT_HARE_LAYOUT";
+    static String DefaultLayout = "/_layouts/layout.jsp";public static final String BODY_TAG_DYNAMIC_ATTRIBUTES = "_body_attr";
 	private String template;
 	private Map<String, Object> attributes = new HashMap<String, Object>();
 
@@ -45,6 +46,14 @@ public class BodyTag extends BodyTagSupport implements DynamicAttributes {
 		try {
 			ServletRequest request = pageContext.getRequest();
 			request.setAttribute(BODY_TAG_DYNAMIC_ATTRIBUTES, attributes);
+            if (template == null || "".equals(template)) {
+                String layoutJspFile = pageContext.getServletContext().getInitParameter(DefaultLayoutKey);
+                if (layoutJspFile != null && !"".equals(layoutJspFile)) {
+                    template = layoutJspFile;
+                } else {
+                    template = DefaultLayout;
+                }
+            }
 			pageContext.include(template);
 		} catch (ServletException e) {
 			e.printStackTrace();

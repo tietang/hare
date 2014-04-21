@@ -16,7 +16,7 @@
 			<name>name</name>
 			<required>true</required>
 			<rtexprvalue>true</rtexprvalue>
-			<type>tags.DefineTag</type>
+			<type>fengfei.commons.jsp.tags.ui.DefineTag</type>
 		</attribute>
 	</tag>
 	<tag>
@@ -36,7 +36,7 @@
 		<body-content>scriptless</body-content>
 		<attribute>
 			<name>template</name>
-			<required>true</required>
+			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<dynamic-attributes>true</dynamic-attributes>

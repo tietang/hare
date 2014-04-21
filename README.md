@@ -35,6 +35,16 @@ hare template tags
 
 例子，参考源代码包中的/demo/demo.jsp和template.jsp文件 基本例子：
 
+配置模板方法：
+-------------------------
+** 2. web.xml中配置默认模板：**
+        <context-param>
+            <param-name>DEFAULT_HARE_LAYOUT</param-name>
+            <param-value>/demo/template.jsp</param-value>
+        </context-param>
+** 3. 在<u:body>**
+
+
 模板页：template.jsp
 -----------------------------------------------------------------------------
 	<body>
