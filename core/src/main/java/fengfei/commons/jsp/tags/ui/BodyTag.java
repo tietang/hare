@@ -33,12 +33,12 @@ public class BodyTag extends BodyTagSupport implements DynamicAttributes {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return BodyTagSupport.EVAL_BODY_BUFFERED;
     }
 
     @Override
     public int doAfterBody() throws JspException {
-        super.doAfterBody();
         return super.doAfterBody();
     }
 
@@ -55,6 +55,7 @@ public class BodyTag extends BodyTagSupport implements DynamicAttributes {
                     template = DefaultLayout;
                 }
             }
+
             pageContext.include(template);
         } catch (ServletException e) {
             e.printStackTrace();

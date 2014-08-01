@@ -16,25 +16,26 @@
 			<name>name</name>
 			<required>true</required>
 			<rtexprvalue>true</rtexprvalue>
-			<type>fengfei.commons.jsp.tags.ui.DefineTag</type>
+            <type>java.lang.String</type>
 		</attribute>
 	</tag>
 	<tag>
 		<name>define</name>
 		<tag-class>fengfei.commons.jsp.tags.ui.DefineTag</tag-class>
-		<body-content>scriptless</body-content>
+		<body-content>JSP</body-content>
+
 		<attribute>
 			<name>name</name>
 			<required>true</required>
 			<rtexprvalue>true</rtexprvalue>
+
 		</attribute>
 	</tag>
-
 
 	<tag>
 		<name>body</name>
 		<tag-class>fengfei.commons.jsp.tags.ui.BodyTag</tag-class>
-		<body-content>scriptless</body-content>
+		<body-content>JSP</body-content>
 		<attribute>
 			<name>template</name>
 			<required>false</required>

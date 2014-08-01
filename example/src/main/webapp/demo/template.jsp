@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ taglib prefix="u" uri="/WEB-INF/ui.tld" %>
+<%@ taglib prefix="u" uri="/hare-ui-tags" %>
+<%
+    response.setHeader("Pragma","No-cache");
+    response.setHeader("Cache-Control","no-cache");
+    response.setDateHeader("Expires", -10);
+%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -164,7 +169,6 @@
     </style>
 </head>
 <body>
-
 
 <div class="header">
     <u:insert name="header"/>

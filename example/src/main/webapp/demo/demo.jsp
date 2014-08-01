@@ -4,12 +4,11 @@
 <html>
 <head>
 
-    <%@ taglib prefix="u" uri="/WEB-INF/ui.tld" %>
+    <%@ taglib prefix="u" uri="/hare-ui-tags" %>
     <meta charset="UTF-8">
 
 </head>
 <body>
-
 <u:body action="#"
         customAtrribute="value">不显示的文字
     <u:define name="title">Demo 页面</u:define>不显示的文字
@@ -34,6 +33,10 @@
         <br/>
     </u:define>
     不显示的文字
+    <%
+
+
+    %>
     <u:define name="body">
         <br/>
         <br/>
@@ -80,7 +83,6 @@
         <br/>
         <br/>
         <br/>
-
 
     </u:define>
     <div>不显示的文字</div>

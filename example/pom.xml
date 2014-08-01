@@ -1,55 +1,64 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>hare</artifactId>
-		<groupId>fengfei</groupId>
-		<version>0.1-beta1</version>
-	</parent>
-	<artifactId>hare.example</artifactId>
-	<packaging>war</packaging>
+    <parent>
+        <artifactId>hare</artifactId>
+        <groupId>fengfei</groupId>
+        <version>0.2-beta1</version>
+    </parent>
+    <artifactId>hare.example</artifactId>
+    <packaging>war</packaging>
 
-	<name>hare Maven Webapp</name>
-	<url>http://maven.apache.org</url>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.2</version>
-				<configuration>
+    <name>hare Webapp</name>
+    <url>http://maven.apache.org</url>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
 
-				</configuration>
-			</plugin>
+                </configuration>
+            </plugin>
 
-		</plugins>
-		<finalName>hare-example</finalName>
-	</build>
+        </plugins>
+        <finalName>hare-example</finalName>
+    </build>
 
-	<dependencies>
-		<dependency>
-			<groupId>fengfei</groupId>
-			<artifactId>hare.core</artifactId>
-			<version>0.1-beta1</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>javax.servlet-api</artifactId>
-					<groupId>javax.servlet</groupId>
-				</exclusion>
-				<exclusion>
-					<artifactId>javax.servlet.jsp-api</artifactId>
-					<groupId>javax.servlet.jsp</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>fengfei</groupId>
+            <artifactId>hare-ui-template</artifactId>
+            <version>0.2-beta1</version>
+
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>

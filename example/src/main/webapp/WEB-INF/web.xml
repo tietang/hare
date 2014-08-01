@@ -15,4 +15,5 @@
         <param-name>DEFAULT_HARE_LAYOUT</param-name>
         <param-value>/demo/template.jsp</param-value>
     </context-param>
+
 </web-app>

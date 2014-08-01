@@ -18,6 +18,8 @@ local.properties
 target
 target/
 */*/target
+.idea/
+.idea/*/*.xml
 
 
 # External tool builders
